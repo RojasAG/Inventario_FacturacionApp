@@ -1,0 +1,147 @@
+:host {
+  display: block;
+  padding: 16px;
+}
+
+.main-container {
+  display: flex;
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding-left: 5px;
+  padding-right: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.content-container {
+  flex: 1.5;
+  background: var(--background);
+  color: var(--text);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: flex 0.3s ease;
+}
+
+.header {
+  display: flex;
+  flex-direction: column; /* Organiza los elementos en una columna */
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.buscar {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px; /* Añade un margen superior para separar el input del h2 */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  min-height: calc(8 * 56px); /* 7 filas más la cabecera, ajusta el valor según la altura de tus filas */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: var(--background);
+}
+
+/* Estilo global para todos los botones */
+button {
+  padding: 6px 12px;
+  background-color: #007bff; /* Fondo azul para los botones normales */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Estilo específico para los botones de acciones */
+.action-button {
+  border: none;
+  padding: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+/* Estilos para el botón de ver (visibility) */
+.view-button {
+  background-color: rgb(0, 165, 0);
+}
+
+.view-button .material-symbols-outlined {
+  color: white;
+}
+
+.view-button:hover {
+  background-color: rgb(0, 123, 0); /* Un verde más oscuro */
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.pagination-controls button {
+  margin: 0 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :host {
+    --background: #333;
+    --text: #fff;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :host {
+    --background: #fff;
+    --text: #000;
+  }
+}
+.pagination-controls button {
+  padding: 6px 12px;
+  margin: 0 10px;
+  background-color: #E95381;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pagination-controls button.disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.pagination-controls button:not(.disabled):hover {
+  background-color: #b83e62; /* Un azul más oscuro */
+  color: white;
+}
+
+
+.fecha{
+  margin-top: 5px;
+}

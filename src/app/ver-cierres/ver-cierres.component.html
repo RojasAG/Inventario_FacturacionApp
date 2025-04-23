@@ -1,0 +1,50 @@
+<div class="main-container">
+  <div class="content-container">
+    <div class="header">
+      <h2>Cierre diario de caja</h2>
+    </div>
+    <div class="search-container">
+      <label for="fecha-busqueda">Buscar por fecha:</label>
+      <input class="fecha" type="date" id="fecha-busqueda" [(ngModel)]="fechaBusqueda" (input)="buscarPorFecha()">
+    </div>
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Cantidad de Facturas</th>
+            <th>Total del Día</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cierre of cierresPaginados">
+            <td>{{ cierre.fecha }}</td>
+            <td>{{ cierre.cantidadFacturas }}</td>           
+            <td>{{ cierre.totalDelDia | currency:'CRC':'symbol':'1.2-2' }}</td>
+            <td><button class="btn btn-primary" (click)="abrirModalFacturas(cierre)">Ver Facturas</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pagination-controls">
+      <div class="pagination-info">
+      </div>
+      <div class="pagination-buttons">
+        <button 
+          (click)="paginaAnterior()" 
+          [disabled]="paginaActual === 0" 
+          [class.disabled]="paginaActual === 0">
+          Anterior
+        </button>
+        <span> Página {{ paginaActual + 1 }} de {{ totalPaginas() }}</span>
+        <button 
+          (click)="paginaSiguiente()" 
+          [disabled]="(paginaActual + 1) * cierresPorPagina >= cierres.length" 
+          [class.disabled]="(paginaActual + 1) * cierresPorPagina >= cierres.length">
+          Siguiente
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

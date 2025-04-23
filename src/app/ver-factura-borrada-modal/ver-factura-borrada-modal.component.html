@@ -1,0 +1,35 @@
+<div class="modal-header">
+    <h2 mat-dialog-title>Factura #{{ factura.id }}</h2>
+  </div>
+  <div class="modal-content" mat-dialog-content>
+    <p><strong>Cliente:</strong> {{ factura.clienteNombre }}</p>
+    <p><strong>Fecha:</strong> {{ factura.fecha.toDate() | date:'dd/MM/yyyy, h:mm a' : 'es' }}</p>
+    <p><strong>Usuario:</strong> {{ factura.usuario?.nombre }}</p>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Descripción</th>
+          <th>Cantidad</th>
+          <th>Precio unitario</th>
+          <th>Total artículo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let producto of factura.productos">
+          <td>{{ producto.codigo }}</td>
+          <td>{{ producto.descripcion }}</td>
+          <td>{{ producto.cantidad }}</td>
+          <td>{{ producto.precio | currency: '₡' }}</td>
+          <td>{{ producto.total | currency: '₡' }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><strong>Motivo anulación:</strong> {{ factura.razon }}</p>
+    <p><strong>Total:</strong> {{ factura.total | currency: '₡' }}</p>
+  </div>
+  <div class="modal-actions" mat-dialog-actions>
+    <button mat-button (click)="close()">Cerrar</button>
+  </div>
+  

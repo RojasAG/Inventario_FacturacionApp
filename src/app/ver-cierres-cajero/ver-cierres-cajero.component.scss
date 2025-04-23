@@ -1,0 +1,143 @@
+:host {
+  display: block;
+  padding: 16px;
+}
+
+.main-container {
+  display: flex;
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding-left: 5px;
+  padding-right: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.content-container {
+  flex: 1.5;
+  background: var(--background);
+  color: var(--text);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: flex 0.3s ease;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  min-height: calc(8 * 56px);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: var(--background);
+}
+
+button {
+  padding: 6px 12px;
+  background-color: #E95381;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+button:hover{
+  background-color: #b83e62;
+}
+
+.action-button {
+  border: none;
+  padding: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.view-button {
+  background-color: rgb(0, 165, 0);
+}
+
+.view-button .material-symbols-outlined {
+  color: white;
+}
+
+.view-button:hover {
+  background-color: rgb(0, 123, 0);
+}
+
+@media (prefers-color-scheme: dark) {
+  :host {
+    --background: #333;
+    --text: #fff;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :host {
+    --background: #fff;
+    --text: #000;
+  }
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.pagination-info {
+  font-size: 16px;
+}
+
+.pagination-buttons {
+  display: flex;
+}
+
+.pagination-controls button {
+  padding: 6px 12px;
+  margin: 0 10px;
+  background-color: #E95381;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pagination-controls button.disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.pagination-controls button:not(.disabled):hover {
+  background-color: #b83e62; /* Un azul más oscuro */
+  color: white;
+}
+
+.fecha{
+  margin-bottom: 5px
+}

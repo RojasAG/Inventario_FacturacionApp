@@ -1,0 +1,29 @@
+
+.layout {
+    display: flex;
+  }
+  
+  .sidebar {
+    transition: width 0.3s ease;
+  }
+  
+  .main-container {
+    display: flex;
+    flex-grow: 1;
+    transition: margin-left 0.3s ease;
+  }
+  
+  .menu-expanded .main-container {
+    margin-left: 160px; //Cuando el sidebar está expandido
+  }
+  
+  .menu-collapsed .main-container {
+    margin-left: 44px;  //Cuando el sidebar está colapsado 
+  }
+  
+  .content {
+    flex-grow: 1;
+    padding: 5px;
+    background-color: var(--background-color);
+    transition: margin-left 0.3s ease;
+  }

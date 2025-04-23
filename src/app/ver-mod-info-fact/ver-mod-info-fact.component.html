@@ -1,0 +1,36 @@
+<div class="container">
+  <form [formGroup]="facturaForm" (ngSubmit)="onSubmit()">
+    <div *ngFor="let info of informacionFactura">
+      <div class="form-group">
+        <label for="detalle">Detalle:</label>
+        <input id="detalle" formControlName="detalle_cambio" type="text" class="form-control"/>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input id="email" formControlName="email" type="email" class="form-control"/>
+      </div>
+
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input id="nombre" formControlName="nombre" type="text" class="form-control"/>
+      </div>
+
+      <div class="form-group">
+        <label for="telefono">Teléfono local:</label>
+        <input id="telefono" formControlName="telefono_local" type="tel" class="form-control"/>
+      </div>
+
+      <div class="form-group">
+        <label for="ubicacion">Ubicación:</label>
+        <input id="ubicacion" formControlName="ubicacion" type="text" class="form-control"/>
+      </div>  
+
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+</div>
+
+
+
+

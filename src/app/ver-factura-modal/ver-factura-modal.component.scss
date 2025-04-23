@@ -1,0 +1,66 @@
+::ng-deep .mat-dialog-container {
+    padding: 0;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+  }
+  
+  .modal-header {
+    background-color: #d14b73;
+    color: #ffffff;
+    padding: 16px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  .modal-content {
+    padding: 24px;
+  }
+  
+  .modal-content p {
+    margin: 0 0 12px 0;
+    font-size: 14px;
+    color: #333333;
+  }
+  
+  .modal-content table {
+    width: 100%;
+    margin-top: 16px;
+    border-collapse: collapse;
+  }
+  
+  .modal-content table th, .modal-content table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  .modal-content table th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+  }
+  
+  .modal-actions {
+    padding: 16px;
+    text-align: right;
+    background-color: #f5f5f5;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  
+  .modal-actions button {
+    background-color: #E95381;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .modal-actions button:hover {
+    background-color: #b83e62;
+  }
+  
+
+

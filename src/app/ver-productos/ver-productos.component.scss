@@ -1,0 +1,236 @@
+:host {
+  display: block;
+  padding: 16px;
+}
+
+.main-container {
+  display: flex;
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding-left: 5px;
+  padding-right: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.sidebar-container {
+  width: 70px; /* Ancho inicial colapsado del sidebar */
+  margin-right: 10px;
+  background-color: var(--background);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: width 0.3s ease;
+}
+
+.content-container {
+  flex: 1.5; /* Expande el contenido al iniciar con el sidebar colapsado */
+  background: var(--background);
+  color: var(--text);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: flex 0.3s ease;
+}
+
+.menu-expanded .sidebar-container {
+  width: 200px; /* Ancho del sidebar expandido */
+}
+
+.menu-expanded .content-container {
+  flex: 1; /* Restaura el tamaño normal del contenido */
+}
+
+/* Resto de estilos */
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: var(--background);
+}
+
+button {
+  padding: 6px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: flex-end; /* Alinea el paginado a la derecha */
+  align-items: center; /* Asegura que los elementos estén alineados verticalmente */
+  margin-bottom: 20px;
+}
+
+.pagination-controls button {
+  margin: 0 10px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.button-group button {
+  flex: 1;
+  margin: 0 5px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :host {
+    --background: #333;
+    --text: #fff;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :host {
+    --background: #fff;
+    --text: #000;
+  }
+}
+
+.agregar {
+  color: var(--text);
+}
+
+.fade-enter, .fade-leave {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-leave {
+  opacity: 1;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.add-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px; /* Espacio entre el icono y el texto */
+  background-color: green;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.icon-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.small-text {
+  font-size: 12px; /* Ajusta el tamaño según lo que necesites */
+  text-align: center;
+}
+
+.add-button .material-symbols-outlined {
+  font-size: 40px; /* Ajusta el tamaño según sea necesario */
+  color: white; /* El ícono dentro del botón de agregar será blanco */
+}
+
+.add-button:hover .material-symbols-outlined {
+  color: rgb(0, 117, 0); /* El ícono cambiará a verde al pasar el mouse */
+}
+
+.edit-button {
+  background-color: yellow;
+  border: none;
+  cursor: pointer;
+}
+
+.edit-button .material-symbols-outlined {
+  color: black; /* El ícono del lápiz será negro */
+  font-size: 20px; /* Ajusta el tamaño según sea necesario */
+}
+
+.delete-button {
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.delete-button .material-symbols-outlined {
+  color: white; /* El ícono del basurero será blanco */
+  font-size: 20px; /* Ajusta el tamaño según sea necesario */
+}
+
+.edit-button:hover {
+  background-color: rgb(155, 155, 0);
+}
+
+.delete-button:hover {
+  background-color: rgb(152, 18, 3);
+}
+
+.add-button:hover {
+  background-color: rgb(0, 81, 0);
+}
+
+.action-button {
+  margin-right: 20px; /* Ajusta el valor según sea necesario */
+}
+
+.table-responsive {
+  overflow-x: auto;
+  min-height: calc(8 * 56px); /* 7 filas más la cabecera, ajusta el valor según la altura de tus filas */
+}
+
+.pagination-controls button {
+  padding: 6px 12px;
+  margin: 0 10px;
+  background-color: #E95381;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pagination-controls button.disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.pagination-controls button:not(.disabled):hover {
+  background-color: #b83e62; /* Un azul más oscuro */
+  color: white;
+}

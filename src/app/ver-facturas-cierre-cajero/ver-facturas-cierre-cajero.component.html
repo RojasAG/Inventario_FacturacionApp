@@ -1,0 +1,43 @@
+<div class="container">
+    <h2>Facturas del Cierre Seleccionado: </h2>
+    <div *ngIf="facturas.length > 0">
+      <div class="facturas-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Total</th>
+              <th>Cliente</th>
+              <th>Usuario</th>
+              <th>Productos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let factura of paginatedFacturas">
+              <td>{{ factura.fecha.toDate() | date: 'yyyy-MM-dd, h:mm:ss a' }}</td>
+              <td>{{ factura.total | currency: '₡' }}</td>
+              <td>{{ factura.clienteNombre || 'N/A' }}</td>
+              <td>{{ factura.usuario?.nombre || 'N/A' }} ({{ factura.usuario?.correo || 'N/A' }})</td>
+              <td>
+                <ul>
+                  <li *ngFor="let producto of factura.productos.slice(0, 5)">
+                    {{ producto.descripcion }} - {{ producto.cantidad }} x {{ producto.precio | currency: '₡' }} = {{ producto.total | currency: '₡' }}
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pagination">
+        <button (click)="previousPage()" [disabled]="currentPage === 1">Anterior</button>
+        <span>Página {{ currentPage }} de {{ totalPages }}</span>
+        <button (click)="nextPage()" [disabled]="currentPage === totalPages">Siguiente</button>
+      </div>
+      <button (click)="goBack()">Regresar</button>
+    </div>
+    <div *ngIf="facturas.length === 0">
+      <p>No se encontraron facturas para este cierre.</p>
+    </div>
+  </div>
+  

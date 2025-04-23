@@ -1,0 +1,34 @@
+<div id="verProductosModal" class="modal">
+  <div class="modal-content">
+    <span class="close" (click)="cerrarModal()">&times;</span>
+    <h2>Lista de Productos</h2>
+    <div class="search-bar">
+      <input type="text" [(ngModel)]="searchTerm" (input)="buscarProducto()" placeholder="Buscar por código o descripción">
+    </div>
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let producto of paginatedProductos">
+            <td>{{ producto.codigo }}</td>
+            <td>{{ producto.descripcion }}</td>
+            <td>{{ producto.precio | currency: '₡' }}</td>
+            <td>{{ producto.cantidad }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pagination-controls">
+      <button class="btnAnt" (click)="prevPage()" [disabled]="currentPage === 1">Anterior</button>
+      <span>Página {{ currentPage }} de {{ totalPages }}</span>
+      <button class="btnAnt" (click)="nextPage()" [disabled]="currentPage === totalPages">Siguiente</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="main-container">
+  <div class="content-container">
+    <div class="header">
+      <h2>Listado de Facturas</h2>
+      <input class="buscar" type="text" [(ngModel)]="searchTerm" placeholder="Nombre cliente, # factura..." (input)="buscarFactura()">
+      <input class="fecha" type="date" [(ngModel)]="searchDate" (change)="buscarFactura()" />
+    </div>
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>Código Factura</th>
+            <th>Fecha</th>
+            <th>Cliente</th>
+            <th>Total</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let factura of facturasPaginadas">
+            <td>{{ factura.id }}</td>
+            <td>{{ factura.fecha.toDate() | date:'dd/MM/yyyy, h:mm a' : 'es' }}</td>
+            <td>{{ factura.clienteNombre }}</td>
+            <td>₡{{ formatPrice(factura.total) }}</td>
+            <td>
+              <button class="action-button print-button" title="Imprimir factura" (click)="generarPDF(factura)">
+                <span class="material-symbols-outlined">print</span>
+              </button>
+              <button class="action-button visility-button" title="Ver factura" (click)="verFactura(factura.id)">
+                <span class="material-symbols-outlined">visibility</span>
+              </button>              
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pagination-controls">
+      <button 
+        (click)="previousPage()" 
+        [disabled]="currentPage === 1" 
+        [class.disabled]="currentPage === 1">
+        Anterior
+      </button>
+      <span>Página {{currentPage}} de {{totalPages}}</span>
+      <button 
+        (click)="nextPage()" 
+        [disabled]="currentPage === totalPages" 
+        [class.disabled]="currentPage === totalPages">
+        Siguiente
+      </button>
+    </div>
+    <button class="btn regresar" (click)="regresar()">Regresar</button>
+  </div>
+</div>
+
