@@ -1,0 +1,29 @@
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #cc449f;
+  color: white;
+  border-radius: 4px 4px 0 0;
+}
+
+.modal-body {
+  max-height: 400px; /* Altura máxima para el contenido */
+  overflow-y: auto;  /* Habilitar el scroll vertical */
+  padding: 10px;
+}
+
+.facturas-table {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.facturas-table th, .facturas-table td {
+  padding: 8px;
+  text-align: left;
+}
+
+.facturas-table th {
+  background-color: #f0f0f0;
+}

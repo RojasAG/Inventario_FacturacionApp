@@ -1,0 +1,74 @@
+.sidebar {
+  margin-top: 20px;
+  margin-left: 10px;
+  width: 44px; /* Tamaño inicial colapsado */
+  background-color: var(--background);
+  padding: 20px;
+  //border-right: 1px solid #ddd;
+  transition: width 0.3s ease;
+  overflow: hidden; /* Para ocultar el contenido */
+  border-radius: 8px;
+}
+
+.sidebar.open {
+  width: 160px; /* Ancho cuando está expandido */
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  color: var(--color);
+  cursor: pointer;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+button {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #E95381;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  transition: all 0.3s ease;
+}
+
+button .material-icons {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+button span.text {
+  display: none; /* Oculta el texto en la vista colapsada */
+}
+
+.sidebar.open button span.text {
+  display: inline; /* Muestra el texto cuando el sidebar está expandido */
+}
+
+h2 {
+  color: var(--color);
+  background-color: var(--background-color);
+  margin: 0;
+  padding-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  :host {
+    --background: #333;
+    --text: #fff;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :host {
+    --background: #fff;
+    --text: #000;
+  }
+}

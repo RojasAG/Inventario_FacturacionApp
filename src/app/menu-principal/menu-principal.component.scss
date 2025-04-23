@@ -1,0 +1,209 @@
+// Define los colores para el modo claro
+$background-color-light: #efe4d8;
+$text-color-light: #1c140d;
+$accent-color-light: #f4ede7;
+$hover-color-light: #e0dad5;
+$background-gradient-light: linear-gradient(to bottom, #f0f0f0, #fcfaf8);
+
+// Define los colores para el modo oscuro
+$background-color-dark: #302e2e;
+$text-color-dark: #e0e0e0;
+$accent-color-dark: #444444;
+$hover-color-dark: #3a3a3a;
+$background-gradient-dark: linear-gradient(to bottom, #1c1c1c, #2b2b2b);
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: $background-gradient-light;
+  color: $text-color-light;
+}
+
+// Estilos por defecto (modo claro)
+.container {
+  background-color: $background-color-light;
+  color: $text-color-light;
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+
+  @media (min-width: 768px) {
+    max-width: 60%;
+  }
+
+  @media (min-width: 1024px) {
+    max-width: 480px;
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: $background-color-light;
+  border-bottom: 1px solid $hover-color-light;
+
+  h2 {
+    color: $text-color-light;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .settings-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: $text-color-light;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    svg {
+      fill: currentColor;
+    }
+  }
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+
+  .menu-item {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background-color: $background-color-light;
+    gap: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    outline: none;
+    border-bottom: 1px solid $hover-color-light;
+
+    &:hover, &:focus {
+      background-color: $hover-color-light;
+      transform: scale(1.02);
+    }
+
+    .icon {
+      background-color: $accent-color-light;
+      border-radius: 8px;
+      padding: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        fill: $text-color-light;
+      }
+    }
+
+    p {
+      color: $text-color-light;
+      font-size: 1rem;
+      flex: 1;
+    }
+  }
+}
+
+footer {
+  padding: 16px;
+  background-color: $background-color-light;
+  border-top: 1px solid $hover-color-light;
+
+  .logout-btn {
+    width: 100%;
+    padding: 16px;
+    background-color: $accent-color-light;
+    border: none;
+    border-radius: 8px;
+    color: $text-color-light;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+
+    &:hover {
+      background-color: $hover-color-light;
+      transform: scale(1.02);
+    }
+  }
+}
+
+// Modo oscuro
+@media (prefers-color-scheme: dark) {
+  body {
+    background: $background-gradient-dark;
+    color: $text-color-dark;
+  }
+
+  .container {
+    background-color: $background-color-dark;
+    color: $text-color-dark;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  }
+
+  header {
+    background-color: $background-color-dark;
+    border-bottom: 1px solid $hover-color-dark;
+
+    h2 {
+      color: $text-color-dark;
+    }
+
+    .settings-btn {
+      color: $text-color-dark;
+
+      svg {
+        fill: currentColor;
+      }
+    }
+  }
+
+  nav {
+    .menu-item {
+      background-color: $background-color-dark;
+      border-bottom: 1px solid $hover-color-dark;
+
+      &:hover, &:focus {
+        background-color: $hover-color-dark;
+      }
+
+      .icon {
+        background-color: $accent-color-dark;
+
+        svg {
+          fill: $text-color-dark;
+        }
+      }
+
+      p {
+        color: $text-color-dark;
+      }
+    }
+  }
+
+  footer {
+    background-color: $background-color-dark;
+    border-top: 1px solid $hover-color-dark;
+
+    .logout-btn {
+      background-color: $accent-color-dark;
+      color: $text-color-dark;
+
+      &:hover {
+        background-color: $hover-color-dark;
+      }
+    }
+  }
+}

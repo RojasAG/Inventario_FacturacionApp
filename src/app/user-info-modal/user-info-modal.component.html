@@ -1,0 +1,8 @@
+<!-- src/app/user-info-modal/user-info-modal.component.html -->
+<div class="modal-backdrop" (click)="closeModal()"></div>
+<div class="modal-content">
+  <h3>Información del Usuario</h3>
+  <p>Nombre: {{ user.name }}</p>
+  <p>Email: {{ user.email }}</p>
+  <button (click)="closeModal()">Cerrar</button>
+</div>

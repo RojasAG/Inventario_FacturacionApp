@@ -1,0 +1,55 @@
+<div class="facturacion-container">
+  <app-sidebar-menu></app-sidebar-menu>
+  <div class="container">
+    <div class="facturacion-header">
+      <h1>Sistema de Facturación</h1>
+      <button (click)="imprimir()">Imprimir</button>
+    </div>    
+    <div class="busqueda-producto">
+      <input [(ngModel)]="searchTerm" (input)="buscarProducto()" placeholder="Buscar producto por código o nombre" />
+      <div class="resultados-busqueda-dropdown" *ngIf="filteredProductos.length > 0">
+        <ul>
+          <li *ngFor="let producto of filteredProductos">
+            {{ producto.codigo }} - {{ producto.descripcion }} - {{ producto.precio | currency:'CRC' }}
+            <input type="number" [(ngModel)]="producto.cantidadDeseada" [min]="1" [max]="getAvailableQuantity(producto)" />
+            de {{ producto.cantidad }}
+            <button (click)="agregarAFactura(producto, producto.cantidadDeseada || 1)">Agregar</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="factura">
+      <h3>Factura</h3>
+      <input class="clienteNom"  type="text" [(ngModel)]="clienteNombre" placeholder="Nombre del Cliente" />
+      <table>
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Descripción</th>
+            <th>Precio unitario</th>
+            <th>Disponibles</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of factura">
+            <td>{{ item.producto.codigo }}</td>
+            <td>{{ item.producto.descripcion }}</td>
+            <td>{{ item.producto.precio | currency: '₡' }}</td>
+            <td>{{ item.producto.cantidad }}</td>
+            <td>
+              <input type="number" [value]="item.cantidad" (change)="onCantidadChange($event, item)" [min]="1" [max]="item.producto.cantidad" />
+            </td>
+            <td>{{ item.producto.precio! * item.cantidad | currency: '₡' }}</td>
+            <td><button (click)="eliminarProducto(item)">Eliminar</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Total: {{ total | currency: '₡' }}</p>
+      <button (click)="generarFactura()">Generar Factura</button>
+    </div>
+  </div>
+</div>

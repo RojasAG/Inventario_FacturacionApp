@@ -1,0 +1,23 @@
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-cancel {
+  background-color: green;
+  color: white;
+
+  &:hover {
+    background-color: darkgreen;
+  }
+}
+
+.btn-confirm {
+  background-color: red;
+  color: white;
+  margin-left: 20px; /* Añade un margen a la izquierda */
+
+  &:hover {
+    background-color: darkred;
+  }
+}

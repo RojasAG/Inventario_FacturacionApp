@@ -1,0 +1,19 @@
+.btn-cancel {
+    background-color: green;
+    color: white;
+  
+    &:hover {
+      background-color: darkgreen;
+    }
+  }
+  
+  .btn-confirm {
+    background-color: red;
+    color: white;
+    margin-left: 20px;
+  
+    &:hover {
+      background-color: darkred;
+    }
+  }
+  

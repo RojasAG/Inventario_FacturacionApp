@@ -1,0 +1,43 @@
+<div class="modal-header">
+  <h2>Facturas del día</h2>
+  <button mat-icon-button (click)="onClose()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<div class="modal-body">
+  <table class="facturas-table" mat-table [dataSource]="data.facturas">
+    <!-- Definición de columnas -->
+    <ng-container matColumnDef="clienteNombre">
+      <th mat-header-cell *matHeaderCellDef>Cliente</th>
+      <td mat-cell *matCellDef="let factura">{{ factura.clienteNombre || 'N/A' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="fecha">
+      <th mat-header-cell *matHeaderCellDef>Fecha</th>
+      <td mat-cell *matCellDef="let factura">{{ factura.fecha.seconds * 1000 | date:'dd/MM/yyyy, h:mm a' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="total">
+      <th mat-header-cell *matHeaderCellDef>Total</th>
+      <td mat-cell *matCellDef="let factura">{{ factura.total | currency:'CRC':'symbol':'1.2-2' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="usuario">
+      <th mat-header-cell *matHeaderCellDef>Usuario</th>
+      <td mat-cell *matCellDef="let factura">{{ factura.usuario.nombre }}</td>
+    </ng-container>
+<!--
+        <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let factura">
+        <button mat-icon-button (click)="verDetallesFactura(factura)">
+          <mat-icon>info</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+-->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let factura; columns: displayedColumns;"></tr>
+  </table>
+</div>

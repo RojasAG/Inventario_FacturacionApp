@@ -1,0 +1,54 @@
+<div class="main-container">
+  <div class="content-container">
+    <div class="header">
+      <h3>Agregar Nuevo Cajero</h3>
+    </div>
+    <form (ngSubmit)="agregarCajero()" class="form-container" #cajeroForm="ngForm">
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          required
+          email
+          #emailInput="ngModel"
+        />
+        <mat-error *ngIf="emailInput.hasError('required')">
+          Debe ingresar un correo electrónico
+        </mat-error>
+        <mat-error *ngIf="emailInput.hasError('email')">
+          El correo electrónico no es válido. Debe tener un formato correcto, como usuario"arroba"gmail.com o similar
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Contraseña</mat-label>
+        <input
+          matInput
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          required
+          minlength="6"
+          #passwordInput="ngModel"
+        />
+        <mat-error *ngIf="passwordInput.hasError('required')">
+          Debe ingresar una contraseña
+        </mat-error>
+        <mat-error *ngIf="passwordInput.hasError('minlength')">
+          La contraseña debe tener al menos 6 caracteres
+        </mat-error>
+      </mat-form-field>
+
+      <p>Mínimo: 6 caracteres</p>
+
+      <div class="button-group">
+        <button mat-raised-button color="primary" type="submit" [disabled]="cajeroForm.invalid">
+          Agregar Cajero
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

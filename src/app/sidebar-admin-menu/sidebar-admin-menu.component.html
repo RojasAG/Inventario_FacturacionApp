@@ -1,0 +1,29 @@
+<div class="sidebar" [class.open]="menuOpen">
+  <button class="menu-toggle" (click)="toggleMenu()">
+    <span class="material-icons">menu</span>
+  </button>
+  <button (click)="goToViewProducts()">
+    <span title="Inventario" class="material-icons">inventory</span> <span class="text">Productos</span>
+  </button>
+  <button (click)="goToViewInvoices()">
+    <span title="Facturas" class="material-icons">receipt</span> <span class="text">Facturas</span>
+  </button>
+  <button (click)="goToViewInvoicesDelete()">
+    <span title="Facturas anuladas" class="material-icons">credit_card_off</span> <span class="text">Facturas anuladas</span>
+  </button>
+  <button (click)="goToViewClosures()">
+    <span title="Cierre diario de caja" class="material-icons">account_balance_wallet</span> <span class="text">Cierres diario de caja</span>
+  </button>
+  <button (click)="verCierresMensuales()">
+    <span title="Cierre mensual caja" class="material-icons">bento</span> <span class="text">Cierre mensual caja</span>
+  </button>
+  <button (click)="agregarCajero()">
+    <span title="Agregar cajero" class="material-icons">person_add</span> <span class="text">Agregar cajero</span>
+  </button>
+  <button (click)="goToInfoFact()">
+    <span title="Información Factura" class="material-icons">info</span> <span class="text">Información de factura</span>
+  </button>
+  <button title="Cerrar sesión" (click)="logout()">
+    <span class="material-icons">logout</span> <span class="text">Cerrar sesión</span>
+  </button>
+</div>

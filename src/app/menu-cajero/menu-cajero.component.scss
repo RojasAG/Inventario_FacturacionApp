@@ -1,0 +1,120 @@
+.facturacion-container {
+    display: flex;
+    padding-top: 15x;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .container {
+    flex: 1;
+    padding: 20px;
+    background-color: rgb(131, 131, 127);
+    
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+  }
+  
+  .busqueda-producto {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  input {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+  }
+  
+  .resultados-busqueda-dropdown {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    width: calc(100% - 20px);
+    z-index: 1000;
+    top: calc(100% + 5px);
+    left: 0;
+  }
+  
+  .resultados-busqueda-dropdown ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .resultados-busqueda-dropdown li {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .resultados-busqueda-dropdown li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .factura table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .factura th, .factura td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .factura th {
+    background-color: #f2f2f2;
+  }
+
+
+  .facturacion-container app-sidebar-menu {
+  margin-right: 20px; /* Ajusta este valor según el espacio que desees */
+}
+
+.facturacion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Esto separa los elementos en los extremos */
+  margin-bottom: 20px;
+}
+
+.facturacion-header h1 {
+  margin: 0;
+}
+
+.facturacion-header button {
+  padding: 10px 20px;
+  margin-right: 18px;
+}
+
+.facturacion-header button,
+.factura button {
+  background-color: #E95381; /* Azul */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.facturacion-header button:hover,
+.factura button:hover {
+  background-color: #b83e62; /* Azul más oscuro al pasar el mouse */
+}
+
+
+.clienteNom {
+  margin-bottom: 5px;
+ }
+

@@ -1,0 +1,14 @@
+<!-- confirm-dialog-borrar-factura.component.html -->
+<h2 mat-dialog-title>Confirmar Eliminación</h2>
+<mat-dialog-content>
+  <p>¿Estás seguro de que deseas eliminar la factura {{ data.id }}?</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Razón para la eliminación</mat-label>
+    <input matInput [(ngModel)]="reason" required>
+  </mat-form-field>
+  <mat-checkbox [(ngModel)]="reintegrarProductos">Reintegrar productos al inventario</mat-checkbox>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button class="btn-cancel" (click)="onCancel()">Cancelar</button>
+  <button mat-button class="btn-confirm" (click)="onConfirm()" [disabled]="!reason">Aceptar</button>
+</mat-dialog-actions>
